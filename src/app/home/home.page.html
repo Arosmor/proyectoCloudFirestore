@@ -1,20 +1,21 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      Proyecto Firestore
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+ <ion-item>
+  <ion-label> Título </ion-label>
+  <ion-imput [(ngModel)]="tareaEditando.titulo"></ion-imput>
+ </ion-item>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+ <ion-item>
+  <ion-label> Descripcion </ion-label>
+  <ion-imput [(ngModel)]="tareaEditando.descripcion"></ion-imput>
+ </ion-item>
+
+ <ion-button (click)="clicBotonInsertar()"> Añadir Tarea </ion-button>
 </ion-content>
