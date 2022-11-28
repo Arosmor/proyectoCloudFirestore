@@ -1,0 +1,7 @@
+{
+  "name": "ProyectoCloudFirestore",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
