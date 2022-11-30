@@ -9,13 +9,52 @@
 <ion-content [fullscreen]="true">
  <ion-item>
   <ion-label> Título </ion-label>
-  <ion-imput [(ngModel)]="tareaEditando.titulo"></ion-imput>
+  <ion-imput [(ngModel)]="editarPeliculas.titulo"></ion-imput>
  </ion-item>
 
  <ion-item>
-  <ion-label> Descripcion </ion-label>
-  <ion-imput [(ngModel)]="tareaEditando.descripcion"></ion-imput>
+  <ion-label> Genero </ion-label>
+  <ion-imput [(ngModel)]="editarPeliculas.generoPelicula"></ion-imput>
+ </ion-item> 
+ 
+ <ion-item>
+  <ion-label> Director </ion-label>
+  <ion-imput [(ngModel)]="editarPeliculas.director"></ion-imput>
+ </ion-item>
+
+ <ion-item>
+  <ion-label> Actor Principal </ion-label>
+  <ion-imput [(ngModel)]="editarPeliculas.actorPrincipal"></ion-imput>
+ </ion-item>
+
+ <ion-item>
+  <ion-label> Fecha de Salida </ion-label>
+  <ion-imput [(ngModel)]="editarPeliculas.fechaSalida"></ion-imput>
+ </ion-item>
+
+ <ion-item>
+  <ion-label> Precio en Cines </ion-label>
+  <ion-imput [(ngModel)]="editarPeliculas.precioCines"></ion-imput>
+ </ion-item>
+
+ <ion-item>
+  <ion-label> Pais de Produccion </ion-label>
+  <ion-imput [(ngModel)]="editarPeliculas.paisProduccion"></ion-imput>
  </ion-item>
 
  <ion-button (click)="clicBotonInsertar()"> Añadir Tarea </ion-button>
+
+ <h1>Lista de Peliculas</h1>
+ <ion-list>
+  <ion-item *ngFor="let documentPelicula of arrayColeccionPeliculas">
+    <ion-grid>
+      <ion-row>
+        <h2> {{ documentPelicula.data.titulo }}</h2>
+      </ion-row>
+      <ion-row>
+        <p> {{ documentPelicula.data.genero }}</p>
+      </ion-row>
+    </ion-grid>
+  </ion-item>
+ </ion-list>
 </ion-content>
