@@ -8,51 +8,56 @@
 
 <ion-content [fullscreen]="true">
  <ion-item>
-  <ion-label> Título </ion-label>
-  <ion-imput [(ngModel)]="editarPeliculas.titulo"></ion-imput>
+  <ion-label> Título: </ion-label>
+  <ion-input [(ngModel)]="editarPeliculas.titulo"></ion-input>
  </ion-item>
 
  <ion-item>
-  <ion-label> Genero </ion-label>
-  <ion-imput [(ngModel)]="editarPeliculas.generoPelicula"></ion-imput>
+  <ion-label> Genero: </ion-label>
+  <ion-input [(ngModel)]="editarPeliculas.generoPelicula"></ion-input>
  </ion-item> 
  
  <ion-item>
-  <ion-label> Director </ion-label>
-  <ion-imput [(ngModel)]="editarPeliculas.director"></ion-imput>
+  <ion-label> Director: </ion-label>
+  <ion-input [(ngModel)]="editarPeliculas.director"></ion-input>
  </ion-item>
 
  <ion-item>
-  <ion-label> Actor Principal </ion-label>
-  <ion-imput [(ngModel)]="editarPeliculas.actorPrincipal"></ion-imput>
+  <ion-label> Actor Principal: </ion-label>
+  <ion-input [(ngModel)]="editarPeliculas.actorPrincipal"></ion-input>
  </ion-item>
 
  <ion-item>
-  <ion-label> Fecha de Salida </ion-label>
-  <ion-imput [(ngModel)]="editarPeliculas.fechaSalida"></ion-imput>
+  <ion-label> Fecha de Salida: </ion-label>
+  <ion-input [(ngModel)]="editarPeliculas.fechaSalida"></ion-input>
  </ion-item>
 
  <ion-item>
-  <ion-label> Precio en Cines </ion-label>
-  <ion-imput [(ngModel)]="editarPeliculas.precioCines"></ion-imput>
+  <ion-label> Precio en Cines: </ion-label>
+  <ion-input [(ngModel)]="editarPeliculas.precioCines"></ion-input>
  </ion-item>
 
  <ion-item>
-  <ion-label> Pais de Produccion </ion-label>
-  <ion-imput [(ngModel)]="editarPeliculas.paisProduccion"></ion-imput>
+  <ion-label> Pais de Produccion: </ion-label>
+  <ion-input [(ngModel)]="editarPeliculas.paisProduccion"></ion-input>
  </ion-item>
 
- <ion-button (click)="clicBotonInsertar()"> Añadir Tarea </ion-button>
+ <ion-button (click)="clicBotonInsertar()"> Añadir Pelicula </ion-button>
+ <ion-button (click)="clicBotonBorrar()">Borrar Pelicula</ion-button>
+ <ion-button (click)="clicBotonModificar()">Modificar Pelicula</ion-button>
 
  <h1>Lista de Peliculas</h1>
  <ion-list>
-  <ion-item *ngFor="let documentPelicula of arrayColeccionPeliculas">
+  <ion-item *ngFor="let documentPelicula of arrayColeccionPeliculas" (click)="selecPelicula(documentPelicula)">
     <ion-grid>
       <ion-row>
         <h2> {{ documentPelicula.data.titulo }}</h2>
       </ion-row>
       <ion-row>
-        <p> {{ documentPelicula.data.genero }}</p>
+        <p> {{ documentPelicula.data.fechaSalida }}</p>
+      </ion-row>
+      <ion-row>
+        <p> {{ documentPelicula.data.precioCines }}</p>
       </ion-row>
     </ion-grid>
   </ion-item>

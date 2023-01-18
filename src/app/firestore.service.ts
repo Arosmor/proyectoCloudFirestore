@@ -18,4 +18,16 @@ export class FirestoreService {
   public consultar (peliculas) {
     return this.angularFirestore.collection(peliculas).snapshotChanges();
   }
+
+  public borrar(peliculas, documentId) {
+    return this.angularFirestore.collection(peliculas).doc(documentId).delete();
+  }
+
+  public actualizar(peliculas, documentId, datos) {
+    return this.angularFirestore.collection(peliculas).doc(documentId).set(datos);
+   }
+
+   public consultarPorId(peliculas, documentId) {
+    return this.angularFirestore.collection(peliculas).doc(documentId).snapshotChanges();
+  }
 }
