@@ -1,13 +1,19 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Proyecto Firestore
+      Lista de Peliculas
     </ion-title>
   </ion-toolbar>
 </ion-header>
-
+  <style>
+    .botonInsertar {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+  </style>
 <ion-content [fullscreen]="true">
- <ion-item>
+ <!-- <ion-item>
   <ion-label> Título: </ion-label>
   <ion-input [(ngModel)]="editarPeliculas.titulo"></ion-input>
  </ion-item>
@@ -40,18 +46,26 @@
  <ion-item>
   <ion-label> Pais de Produccion: </ion-label>
   <ion-input [(ngModel)]="editarPeliculas.paisProduccion"></ion-input>
- </ion-item>
+ </ion-item> -->
 
- <ion-button (click)="clicBotonInsertar()"> Añadir Pelicula </ion-button>
- <ion-button (click)="clicBotonBorrar()">Borrar Pelicula</ion-button>
- <ion-button (click)="clicBotonModificar()">Modificar Pelicula</ion-button>
+ <!-- <ion-button (click)="clicBotonBorrar()">Borrar Pelicula</ion-button>
+ <ion-button (click)="clicBotonModificar()">Modificar Pelicula</ion-button> -->
 
- <h1>Lista de Peliculas</h1>
+
  <ion-list>
   <ion-item *ngFor="let documentPelicula of arrayColeccionPeliculas" (click)="selecPelicula(documentPelicula)">
     <ion-grid>
       <ion-row>
-        <h2> {{ documentPelicula.data.titulo }}</h2>
+        <h1> {{ documentPelicula.data.titulo }}</h1>
+      </ion-row>
+      <ion-row>
+        <p> {{ documentPelicula.data.generoPelicula }}</p>
+      </ion-row>
+      <ion-row>
+        <p> {{ documentPelicula.data.director }}</p>
+      </ion-row>
+      <ion-row>
+        <p> {{ documentPelicula.data.actorPrincipal }}</p>
       </ion-row>
       <ion-row>
         <p> {{ documentPelicula.data.fechaSalida }}</p>
@@ -59,7 +73,12 @@
       <ion-row>
         <p> {{ documentPelicula.data.precioCines }}</p>
       </ion-row>
+      <ion-row>
+        <p> {{ documentPelicula.data.paisProduccion }}</p>
+      </ion-row>
     </ion-grid>
   </ion-item>
+ <ion-fab-button (click)="clicBotonInsertar()"> <ion-icon name="layers-sharp"></ion-icon> </ion-fab-button>
+
  </ion-list>
 </ion-content>

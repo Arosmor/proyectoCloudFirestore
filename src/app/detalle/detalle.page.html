@@ -1,12 +1,50 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Detalle de la Pelicula</ion-title>
+    <ion-title>Detalles de la Pelicula</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
 
-  <p> {{ id }} </p>
-  <p> {{ titulo }} </p>
+  <ion-item>
+    <ion-label> Título: </ion-label>
+    <ion-input [(ngModel)]="documentPelicula.data.titulo"></ion-input>
+   </ion-item>
+  
+   <ion-item>
+    <ion-label> Genero: </ion-label>
+    <ion-input [(ngModel)]="documentPelicula.data.generoPelicula"></ion-input>
+   </ion-item> 
+   
+   <ion-item>
+    <ion-label> Director: </ion-label>
+    <ion-input [(ngModel)]="documentPelicula.data.director"></ion-input>
+   </ion-item>
+  
+   <ion-item>
+    <ion-label> Actor Principal: </ion-label>
+    <ion-input [(ngModel)]="documentPelicula.data.actorPrincipal"></ion-input>
+   </ion-item>
+  
+   <ion-item>
+    <ion-label> Fecha de Salida: </ion-label>
+    <ion-input [(ngModel)]="documentPelicula.data.fechaSalida"></ion-input>
+   </ion-item>
+  
+   <ion-item>
+    <ion-label> Precio en Cines: </ion-label>
+    <ion-input [(ngModel)]="documentPelicula.data.precioCines"></ion-input>
+   </ion-item>
+  
+   <ion-item>
+    <ion-label> Pais de Produccion: </ion-label>
+    <ion-input [(ngModel)]="documentPelicula.data.paisProduccion"></ion-input>
+   </ion-item>
+
+   <ion-button (click)="clicBotonInsertar()">Insertar Pelicula</ion-button>
+   <ion-button (click)="clicBotonBorrar()">Borrar Pelicula</ion-button>
+   <ion-button (click)="clicBotonModificar()">Modificar Pelicula</ion-button>
+   <ion-button (click)="clicBotonVolver()">Volver a la Lista de Peliculas</ion-button>
+
   
 </ion-content>

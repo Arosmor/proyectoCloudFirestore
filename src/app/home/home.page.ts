@@ -3,6 +3,9 @@ import { Pelicula } from '../pelicula';
 
 import { FirestoreService } from '../firestore.service';
 import { Router } from '@angular/router';
+import { LoadingController } from '@ionic/angular';
+import { ToastController } from '@ionic/angular';
+import { ImagePicker } from '@awesome-cordova-plugins/image-picker/ngx';
 
 @Component({
   selector: 'app-home',
@@ -11,6 +14,9 @@ import { Router } from '@angular/router';
 })
 export class HomePage {
  
+  idPeliculaSelec: string;
+  nuevaPelicula: string;
+
   editarPeliculas: Pelicula;
   arrayColeccionPeliculas: any = [{
     id: "",
@@ -18,7 +24,11 @@ export class HomePage {
 
   }];
 
-  constructor(private firestoreService: FirestoreService, private router: Router) {
+  constructor(private firestoreService: FirestoreService,
+     private router: Router,
+     private loadingControler: LoadingController,
+     private toastController: ToastController,
+     private imagePicker: ImagePicker ) {
     this.editarPeliculas = {} as Pelicula;
 
     this.obtenerListaPeliculas();
@@ -29,42 +39,17 @@ export class HomePage {
     data: {} as Pelicula
   };
 
-  
 
   clicBotonInsertar() {
-    this.firestoreService.insertar("peliculas", this.editarPeliculas)
-    .then(() => {
-      console.log("Pelicula creada correctamente");
+    // console.log(this.idPeliculaSelec);
+    // this.firestoreService.insertar("peliculas", this.nuevaPelicula).then(() => {
 
-      // Limpiar el contenido de la pelicula que se esta editando
-      this.editarPeliculas = {} as Pelicula;
-    }, (error) => {
-      console.error(error);
-    }
-    );
+    // }
+    // );
+      this.router.navigate(['/detalle/:id']);
+
 
   }
-
-  clicBotonBorrar() {
-    this.firestoreService.borrar("peliculas", this.idPeliculaSelec).then(() => {
-      // Actualizar la lista completa
-      this.obtenerListaPeliculas();
-      // Limpiar datos de pantalla
-      this.editarPeliculas = {} as Pelicula;
-    })
-  }
-
-  clicBotonModificar() {
-    this.firestoreService.actualizar("peliculas", this.idPeliculaSelec, this.editarPeliculas).then(() => {
-      // Actualizar la lista completa
-      this.obtenerListaPeliculas();
-      // Limpiar datos de pantalla
-      this.editarPeliculas = {} as Pelicula;
-    })
-  }
-
-
-  idPeliculaSelec: string;
 
   selecPelicula(peliculaSelec) {
     console.log("Tarea seleccionada: ");
