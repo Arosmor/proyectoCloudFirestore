@@ -1,84 +1,66 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Lista de Peliculas
-    </ion-title>
+    <ion-buttons slot="start" (click)="clicBotonInsertar()">
+      <ion-menu-button auto-hide="false"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Lista Peliculas</ion-title>
   </ion-toolbar>
 </ion-header>
-  <style>
-    .botonInsertar {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-}
-  </style>
+<style>
+
+  ion-content {
+    --background: #87e0e3;
+  }
+
+  ion-fab-button {
+    --color: #ffffff;
+    --background: #0d1acf;
+  }
+
+  ion-grid {
+    --ion-grid-padding: 20px;
+    --background: #ffffff;
+    --color: #ffffff;
+
+  }
+
+  ion-toolbar {
+    --background: #ffffff;
+
+  }
+</style>
 <ion-content [fullscreen]="true">
- <!-- <ion-item>
-  <ion-label> Título: </ion-label>
-  <ion-input [(ngModel)]="editarPeliculas.titulo"></ion-input>
- </ion-item>
 
- <ion-item>
-  <ion-label> Genero: </ion-label>
-  <ion-input [(ngModel)]="editarPeliculas.generoPelicula"></ion-input>
- </ion-item> 
- 
- <ion-item>
-  <ion-label> Director: </ion-label>
-  <ion-input [(ngModel)]="editarPeliculas.director"></ion-input>
- </ion-item>
+  <ion-grid>
+    <ion-row>
 
- <ion-item>
-  <ion-label> Actor Principal: </ion-label>
-  <ion-input [(ngModel)]="editarPeliculas.actorPrincipal"></ion-input>
- </ion-item>
-
- <ion-item>
-  <ion-label> Fecha de Salida: </ion-label>
-  <ion-input [(ngModel)]="editarPeliculas.fechaSalida"></ion-input>
- </ion-item>
-
- <ion-item>
-  <ion-label> Precio en Cines: </ion-label>
-  <ion-input [(ngModel)]="editarPeliculas.precioCines"></ion-input>
- </ion-item>
-
- <ion-item>
-  <ion-label> Pais de Produccion: </ion-label>
-  <ion-input [(ngModel)]="editarPeliculas.paisProduccion"></ion-input>
- </ion-item> -->
-
- <!-- <ion-button (click)="clicBotonBorrar()">Borrar Pelicula</ion-button>
- <ion-button (click)="clicBotonModificar()">Modificar Pelicula</ion-button> -->
-
-
- <ion-list>
-  <ion-item *ngFor="let documentPelicula of arrayColeccionPeliculas" (click)="selecPelicula(documentPelicula)">
-    <ion-grid>
-      <ion-row>
-        <h1> {{ documentPelicula.data.titulo }}</h1>
-      </ion-row>
-      <ion-row>
-        <p> {{ documentPelicula.data.generoPelicula }}</p>
-      </ion-row>
-      <ion-row>
-        <p> {{ documentPelicula.data.director }}</p>
-      </ion-row>
-      <ion-row>
-        <p> {{ documentPelicula.data.actorPrincipal }}</p>
-      </ion-row>
-      <ion-row>
-        <p> {{ documentPelicula.data.fechaSalida }}</p>
-      </ion-row>
-      <ion-row>
-        <p> {{ documentPelicula.data.precioCines }}</p>
-      </ion-row>
-      <ion-row>
-        <p> {{ documentPelicula.data.paisProduccion }}</p>
-      </ion-row>
-    </ion-grid>
-  </ion-item>
- <ion-fab-button (click)="clicBotonInsertar()"> <ion-icon name="layers-sharp"></ion-icon> </ion-fab-button>
-
- </ion-list>
+      <ion-item *ngFor="let documentPelicula of arrayColeccionPeliculas" (click)="selecPelicula(documentPelicula)" size-xl="3" size-lg="3" size-md="4"
+      size-sm="6" size-xs="12">
+      <ion-grid>
+        <ion-col>
+          <h1> {{ documentPelicula.data.titulo }}</h1>
+        </ion-col>
+        <ion-col>
+          <p> {{ documentPelicula.data.generoPelicula }}</p>
+        </ion-col>
+        <ion-col>
+          <p> {{ documentPelicula.data.director }}</p>
+        </ion-col>
+        <ion-col>
+          <p> {{ documentPelicula.data.actorPrincipal }}</p>
+        </ion-col>
+        <ion-col>
+          <p> {{ documentPelicula.data.fechaSalida }}</p>
+        </ion-col>
+        <ion-col>
+          <p> {{ documentPelicula.data.precioCines }}</p>
+        </ion-col>
+        <ion-col>
+          <p> {{ documentPelicula.data.paisProduccion }}</p>
+        </ion-col>
+        </ion-grid>
+      </ion-item>
+    </ion-row>
+  </ion-grid>
 </ion-content>
+<!-- <ion-fab-button (click)="clicBotonInsertar()"> <ion-icon name="layers-sharp"></ion-icon> </ion-fab-button> -->
