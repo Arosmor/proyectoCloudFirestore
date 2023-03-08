@@ -1,0 +1,37 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Informacion de la Aplicacion</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>
+      Lista Peliculas
+      </ion-card-title>
+      <ion-card-subtitle>
+        Versión 1.0.0
+      </ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+      <p>Descripción de la aplicación: Esta es una aplicación sobre almacenamiento de peliculas</p>
+      <p>Desarrollador: Amos Rosado Morales</p>
+      <p>Fecha de lanzamiento: 1 de enero de 2023</p>
+      <p>Sitio web: <a href="https://www.miapp.com">https://www.miapp.com</a></p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+<ion-tabs>
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="home">
+      <ion-icon name="home" id="icons"></ion-icon>
+      <ion-label>Inicio</ion-label>
+    </ion-tab-button>
+    <ion-tab-button tab="informacion">
+      <ion-icon name="information-circle" id="icons"></ion-icon>
+      <ion-label>Sobre la App</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>

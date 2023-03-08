@@ -22,6 +22,36 @@
   margin: 0;
 }
 
+ion-menu-button {
+  --color: rgb(238, 238, 243);
+
+}
+
+ion-title {
+  --color: #ffffff;
+
+}
+
+ion-content {
+  --background: #c59ed2;
+}
+
+ion-fab-button {
+  --color: #ffffff;
+  --background: #0d1acf;
+}
+
+ion-grid {
+  --ion-grid-padding: 20px;
+  --background: #ffffff;
+  --color: #ffffff;
+
+}
+
+ion-toolbar {
+  --background: #656568;
+
+}
 #container a {
   text-decoration: none;
 }

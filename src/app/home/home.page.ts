@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { LoadingController } from '@ionic/angular';
 import { ToastController } from '@ionic/angular';
 import { ImagePicker } from '@awesome-cordova-plugins/image-picker/ngx';
+import { SocialSharing } from '@awesome-cordova-plugins/social-sharing/ngx';
 
 @Component({
   selector: 'app-home',
@@ -26,6 +27,7 @@ export class HomePage {
 
   constructor(private firestoreService: FirestoreService,
      private router: Router,
+     private socialSharing: SocialSharing,
      private loadingControler: LoadingController,
      private toastController: ToastController,
      private imagePicker: ImagePicker ) {
@@ -50,6 +52,17 @@ export class HomePage {
 
 
   }
+
+  clicBotonCompartir() {
+    // console.log(this.idPeliculaSelec);
+    // this.firestoreService.insertar("peliculas", this.nuevaPelicula).then(() => {
+
+    // }
+    // );
+
+    this.socialSharing.share()
+  }
+
 
   selecPelicula(peliculaSelec) {
     console.log("Tarea seleccionada: ");

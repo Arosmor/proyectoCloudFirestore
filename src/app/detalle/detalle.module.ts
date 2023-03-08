@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 import { DetallePageRoutingModule } from './detalle-routing.module';
-
+// import { ImagePicker } from '@awesome-cordova-plugins/image-picker/ngx';
 import { DetallePage } from './detalle.page';
 
 @NgModule({

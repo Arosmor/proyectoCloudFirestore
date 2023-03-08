@@ -6,29 +6,7 @@
     <ion-title>Lista Peliculas</ion-title>
   </ion-toolbar>
 </ion-header>
-<style>
 
-  ion-content {
-    --background: #87e0e3;
-  }
-
-  ion-fab-button {
-    --color: #ffffff;
-    --background: #0d1acf;
-  }
-
-  ion-grid {
-    --ion-grid-padding: 20px;
-    --background: #ffffff;
-    --color: #ffffff;
-
-  }
-
-  ion-toolbar {
-    --background: #ffffff;
-
-  }
-</style>
 <ion-content [fullscreen]="true">
 
   <ion-grid>
@@ -62,5 +40,20 @@
       </ion-item>
     </ion-row>
   </ion-grid>
+
+ 
 </ion-content>
-<!-- <ion-fab-button (click)="clicBotonInsertar()"> <ion-icon name="layers-sharp"></ion-icon> </ion-fab-button> -->
+<ion-button (click)="clicBotonCompartir()">Compartir Pelicula</ion-button>
+
+<ion-tabs>
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="home">
+      <ion-icon name="home" id="icons"></ion-icon>
+      <ion-label>Inicio</ion-label>
+    </ion-tab-button>
+    <ion-tab-button tab="informacion">
+      <ion-icon name="information-circle" id="icons"></ion-icon>
+      <ion-label>Sobre la App</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>

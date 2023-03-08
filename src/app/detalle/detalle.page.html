@@ -1,5 +1,10 @@
 <ion-header>
   <ion-toolbar>
+    <ion-buttons slot="start" (click)="clicBotonVolver()">
+      <ion-menu-button auto-hide="false">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </ion-menu-button>
+    </ion-buttons>
     <ion-title>Detalles de la Pelicula</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -40,12 +45,17 @@
     <ion-label position="floating"> Pais de Produccion: </ion-label>
     <ion-input [(ngModel)]="documentPelicula.data.paisProduccion"></ion-input>
    </ion-item>
+   
+   <ion-item fill="solid">
+    <ion-label> Imagen: </ion-label>
+    <img src=" {{ documentPelicula.data.imagen }}" alt="">
+   </ion-item>
 
    <ion-button (click)="clicBotonInsertar()">Insertar Pelicula</ion-button>
    <ion-button (click)="clicBotonBorrar()">Borrar Pelicula</ion-button>
    <ion-button (click)="clicBotonModificar()">Modificar Pelicula</ion-button>
    <ion-button (click)="uploadImagePicker()">Subir foto </ion-button>
-   <ion-button (click)="clicBotonVolver()">Volver a la Lista de Peliculas</ion-button>
+   <!-- <ion-button (click)="clicBotonVolver()">Volver a la Lista de Peliculas</ion-button> -->
 
   
 </ion-content>
