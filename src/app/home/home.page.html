@@ -8,43 +8,40 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
+<ion-card>
 
-  <ion-grid>
-    <ion-row>
+      <ion-item *ngFor="let documentPelicula of arrayColeccionPeliculas" (click)="selecPelicula(documentPelicula)" >
+        <div >
+          <div>
+            <h1>{{ documentPelicula.data.titulo }}</h1>
+          </div>
+          <div>
+            <p><strong>Género:</strong> {{ documentPelicula.data.generoPelicula }}</p>
+          </div>
+          <div>
+            <p><strong>Director:</strong> {{ documentPelicula.data.director }}</p>
+          </div>
+          <div >
+            <p><strong>Actor principal:</strong> {{ documentPelicula.data.actorPrincipal }}</p>
+          </div>
+          <div>
+            <p><strong>Fecha de salida:</strong> {{ documentPelicula.data.fechaSalida }}</p>
+          </div>
+          <div>
+            <p><strong>Precio en cines:</strong> {{ documentPelicula.data.precioCines }}</p>
+          </div>
+          <div>
+            <p><strong>País de producción:</strong> {{ documentPelicula.data.paisProduccion }}</p>
+          </div>
+        </div>
 
-      <ion-item *ngFor="let documentPelicula of arrayColeccionPeliculas" (click)="selecPelicula(documentPelicula)" size-xl="3" size-lg="3" size-md="4"
-      size-sm="6" size-xs="12">
-      <ion-grid>
-        <ion-col>
-          <h1> {{ documentPelicula.data.titulo }}</h1>
-        </ion-col>
-        <ion-col>
-          <p> {{ documentPelicula.data.generoPelicula }}</p>
-        </ion-col>
-        <ion-col>
-          <p> {{ documentPelicula.data.director }}</p>
-        </ion-col>
-        <ion-col>
-          <p> {{ documentPelicula.data.actorPrincipal }}</p>
-        </ion-col>
-        <ion-col>
-          <p> {{ documentPelicula.data.fechaSalida }}</p>
-        </ion-col>
-        <ion-col>
-          <p> {{ documentPelicula.data.precioCines }}</p>
-        </ion-col>
-        <ion-col>
-          <p> {{ documentPelicula.data.paisProduccion }}</p>
-        </ion-col>
-        </ion-grid>
       </ion-item>
-    </ion-row>
-  </ion-grid>
+    </ion-card>
 
  
 </ion-content>
-<ion-button (click)="clicBotonCompartir()">Compartir Pelicula</ion-button>
 
+<ion-toolbar>
 <ion-tabs>
   <ion-tab-bar slot="bottom">
     <ion-tab-button tab="home">
@@ -57,3 +54,4 @@
     </ion-tab-button>
   </ion-tab-bar>
 </ion-tabs>
+</ion-toolbar>

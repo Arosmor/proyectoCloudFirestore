@@ -8,6 +8,9 @@ import { Pelicula } from '../pelicula';
 import { LoadingController } from '@ionic/angular';
 import { ToastController } from '@ionic/angular';
 import { ImagePicker } from '@awesome-cordova-plugins/image-picker/ngx';
+import { SocialSharing } from '@awesome-cordova-plugins/social-sharing/ngx';
+import { AlertController } from '@ionic/angular';
+
 
 @Component({
   selector: 'app-detalle',
@@ -31,6 +34,8 @@ export class DetallePage implements OnInit {
   constructor(private activatedRoute: ActivatedRoute, private firestoreService: FirestoreService, private router: Router,
     private loadingControler: LoadingController,
     private toastController: ToastController,
+    private socialSharing: SocialSharing,
+    private alertController: AlertController,
     private imagePicker: ImagePicker) { 
 
   }
@@ -117,15 +122,35 @@ export class DetallePage implements OnInit {
     );
   }
 
-  clicBotonBorrar() {
-    this.firestoreService.borrar("peliculas", this.id).then(() => {
-      // Actualizar la lista completa
-      // this.documentPelicula.data();
-      // Limpiar datos de pantalla
-      this.documentPelicula.data = {} as Pelicula;
-      // this.router.navigate(['/home']);
+  async clicBotonBorrar() {
+    const alert = await this.alertController.create({
+      header: 'Confirmar borrado de Pelicula',
+      message: '¿Estás seguro de que desea borrar la película?',
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+        }, {
+          text: 'Borrar',
+          handler: () => {
+            this.firestoreService.borrar("peliculas", this.id).then(() => {
+   
+              this.documentPelicula.data = {} as Pelicula;
+        
+            })
+            
+          }
+        }
+      ]
+    });
+    await alert.present();
+    
+  }
 
-    })
+  clicBotonCompartir() {
+    
+
+    this.socialSharing.share()
   }
 
   clicBotonModificar() {
